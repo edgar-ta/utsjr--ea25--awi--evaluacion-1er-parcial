@@ -21,6 +21,12 @@ const userSchema = new mongoose.Schema(
         salt: {
             type: String,
             required: true
+        },
+        type: {
+            type: String,
+            enum: [ "user", "admin" ],
+            default: "user",
+            required: true
         }
     },
     {

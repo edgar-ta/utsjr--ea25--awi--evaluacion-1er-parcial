@@ -49,3 +49,13 @@ export const login = async ({ username, password }) => {
         .catch(error => message(200, `The user with the username ${username} doesn't exist`))
     ;
 };
+
+
+export const isAdmin = async (id) => {
+    try {
+        const user = await userModel.findById(id);
+        return user.type === "admin";
+    } catch (error) {
+        return false;
+    }
+};
